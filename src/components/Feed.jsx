@@ -5,14 +5,13 @@ import {Sidebar, Videos} from './';
 
 
 const Feed = () => {
-
-const [selectedCategory, setSelectedCategory] = useState('New');
-const [videos, setVideos] = useState([]);
-
+  
+  const [selectedCategory, setSelectedCategory] = useState('New');
+  const [videos, setVideos] = useState([]);
 
   useEffect (() => {
-  fetchFromAPI (`search?part=snippet&=q=${selectedCategory}`) .then((data) => setVideos(data.items))
-}, [selectedCategory]);
+    fetchFromAPI (`search?part=snippet&q=${selectedCategory}`) .then((data) => setVideos(data.items))
+  }, [selectedCategory]);
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row"} }}>
